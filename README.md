@@ -39,11 +39,18 @@ Command used:
 ```bash
 aws s3api get-bucket-acl --bucket <BUCKET_NAME> --profile lab
 ```
-Security Risk
+## Security Risk
 A public S3 bucket allows anyone on the internet to access its contents without authentication.
 If sensitive data is stored in such a bucket, it could be downloaded by unauthorized users, leading to potential data breaches.
 
-Key Takeaways
+## Key Takeaways
 Always enable MFA for IAM users, especially administrators.
 Avoid granting public access to S3 buckets unless explicitly needed.
 Restrict security group rules to specific IPs, not 0.0.0.0/0.
+
+## Screenshots
+IAM Audit Script Output – terminal showing the results of iam_audit.py with MFA, AdministratorAccess, SG, and S3 findings
+S3 File Upload Command Output – terminal showing the aws s3 cp command successfully uploading hello.txt to the bucket with public-read
+S3 Bucket ACL Output – terminal showing aws s3api get-bucket-acl output confirming READ permission for AllUsers
+
+

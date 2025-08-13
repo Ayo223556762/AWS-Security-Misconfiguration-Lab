@@ -31,15 +31,14 @@ Command used:
 ```bash
 echo hello > hello.txt
 aws s3 cp hello.txt s3://<BUCKET_NAME>/hello.txt --acl public-read --profile lab
-
+```
 ### 3. Verify Bucket ACL
 We checked the bucket ACL to confirm it grants READ access to the AllUsers group, meaning the file is publicly accessible.
 
 Command used:
+```bash
 aws s3api get-bucket-acl --bucket <BUCKET_NAME> --profile lab
-Screenshot:
-![Bucket ACL](screenshots/bucket_acl.png)
-
+```
 Security Risk
 A public S3 bucket allows anyone on the internet to access its contents without authentication.
 If sensitive data is stored in such a bucket, it could be downloaded by unauthorized users, leading to potential data breaches.
